@@ -1,0 +1,74 @@
+<template name="instructions">
+<!--This is horrifying and a disaster zone. Someone fix.-->
+	<h3>Instructions</h3>
+
+	<div class="flippable instructions-0">
+		<p>Thank you for waiting. All {{n_players}} people have joined the study. Please click the "Continue" button to begin!</p>
+
+	</div>
+
+	<div class="flippable instructions-1">
+		<p>You were recruited to this study because on a prior survey we administered you indicated that you identified as "<strong><u>{{affiliation}}</u></strong>". You have been grouped with {{n_other_players}} other people who also indicated on a prior survey that they identified as "<strong><u>{{affiliation}}</u></strong>".</p>
+
+		<p>In this study we are interested in people’s political attitudes. Throughout the study you and the other members of your group will report your political attitudes on a variety of different issues. <em>Your attitudes will be shown to the rest of your group, and you will also be shown the attitudes of the people in your group</em>. </p>
+
+		<p>The people in your group will be identified as {{other_player_string}}. You have been randomly assigned to be <strong>Player {{turn_idx}}</strong>.</p>
+
+		<p>Once you have read over these instructions, please click the "Continue" button below.</p>
+
+	</div>
+
+	<div class="flippable instructions-2">
+
+		<div class="message">{{instructions_message}}</div>
+
+		<p>Throughout the study you will report your attitudes toward {{n_rounds}} different political issues. For each political issue all {{n_players}} group members will submit their opinion on that issue. For each issue, the study will take the following format:</p>
+
+		<ol>
+			<li>First, one member of your group will be randomly selected to report their attitude on the issue. After they submit their attitude, the attitude will be shown to the group.</li>
+			<li>Next, a second member of the group will be randomly chosen to report their attitude, and their attitude will be shown to the group.</li>
+			<li>Next, a third group member will submit their attitude and it will be shown to the group.</li>
+			<li>Finally, the fourth group member will submit their attitude and it will be shown to the group.</li>
+			<li>After all group members have submitted their attitudes, you will move to the next item.</li>
+		</ol>
+
+		<p>After you have read over the above information, please press the "Continue" button to continue.</p>
+
+	</div>
+
+	<div class="flippable instructions-3">
+		<p>Before you begin the study we want to ensure that you understood the instructions.</p>
+
+		<p>Please answer the following questions:</p>
+
+		<form id="instruction-check">
+			<ol>
+			{{# each instruction_quiz_questions}}
+				<li>{{> instructionQuizQuestion}}</li>
+			{{/each}}
+			</ol>
+			<br/>
+			<div class="message"><p>{{wakeup_call}}</p></div>
+			<div class="message">{{form_message}}</div>
+			<input type="submit" value="Submit answers"/>
+		</form>
+	</div>
+
+	{{#unless in_quiz}}
+
+	<form id="instructions-continue">
+			<input type="submit" value="Continue"/>
+	</form>
+
+	{{/unless}}
+
+
+</template>
+
+<template name="instructionQuizQuestion">
+	<div class="prompt-text">{{prompt}}</div>
+	{{# each choices}}
+	<label><input type="radio" name="question-{{prompt_idx}}" value="{{choice_idx}}"/>&nbsp;{{choice_text}}</label>
+	<br/>
+	{{/each}}
+</template>

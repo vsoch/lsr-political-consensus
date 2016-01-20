@@ -1,0 +1,145 @@
+{
+	"admin_password": "spaceman",
+	"version": "regular", 
+	"instruction_quiz_answers": [2,2],
+	"public": {
+		"round_end_time": 10000,
+		"wrapup_time": 15000,
+		"idle_threshold": 60000,
+		"logout_threshold": 300000,
+		"instruction_quiz_questions:": [
+				{
+					"prompt": "How many people will be in your group, including you?",
+					"choices": ["Two","Three","Four","Five"]
+				},
+				{
+					"prompt": "How many members of your group will report their attitude for each political issue?",
+					"choices": ["One group member", "Half of the group members", "All of the group members"]
+				}
+			],
+		"debug": true,
+		"n_players": 4,
+		"choices_per_question": 7,
+		
+		"values_per_choice": [
+				{"value":"Strongly Oppose"},
+				{"value":"Oppose"},
+				{"value":"Slightly Oppose"},
+				{"value":"Neither Oppose Nor Support"},
+				{"value":"Slightly Support"},
+				{"value":"Support"},
+				{"value":"Strongly Support"}
+			],
+
+		"values_per_end_choice_chart": [
+				{"value":"Strongly Disagree", "idx": 1},
+				{"value":"Disagree", "idx": 2},
+				{"value":"Slightly Disagree", "idx": 3},
+				{"value":"Neither Disagree Nor Agree", "idx": 4},
+				{"value":"Slightly Agree", "idx": 5},
+				{"value":"Agree", "idx": 6},
+				{"value":"Strongly Agree", "idx": 7}
+			],
+
+		"values_per_end_choice": [
+			{"value": "Extremely Unlikely"},
+			{"value": "Unlikely"},
+			{"value": "Somewhat Unlikely"},
+			{"value": "Neither Unlikely Nor Likely"},
+			{"value": "Somewhat Likely"},
+			{"value": "Likely"},
+			{"value": "Extremely Likely"}
+		],
+
+		"values_per_feel_choice": [
+			{"value": "Not At All", "idx": 1},
+			{"value": "A Little", "idx": 2},
+			{"value": "Moderately", "idx": 3},
+			{"value": "Quite a Bit", "idx": 4},
+			{"value": "Extremely", "idx": 5}
+		],
+		
+		"practice_prompt": "Eliminating daylight savings time",
+		"practice_responses": [5,7,6],
+		"rounds": [
+				{
+					"order": [0,1,2,3],
+					"prompt": "The Affordable Care Act (Obamacare)"
+				},
+				{
+					"order": [2,0,3,1],
+					"prompt": "Interrogating suspected terrorists with extreme methods"
+				},
+				{
+					"order": [3,2,1,0],
+					"prompt": "Capital punishment (the death penalty)"
+				},
+				{
+					"order": [1,3,2,0],
+					"prompt": "Increasing restrictions on gun ownership"
+				},
+				{
+					"order": [2,3,0,1],
+					"prompt": "Providing a path to citizenship for undocumented immigrants"
+				},
+				{
+					"order": [0,2,1,3],
+					"prompt": "Legalizing marijuana"
+				},
+				{
+					"order": [3,1,0,2],
+					"prompt": "Increasing military spending"
+				},
+				{
+					"order": [1,0,3,2],
+					"prompt": "Increasing restrictions on welfare assistance"
+				}
+
+			],
+		"additional_questions": [
+				"How unlikely or likely are you to vote in the 2016 Presidential election?",
+				"How unlikely or likely would you be to sign a petition for a {{affiliation}} political cause?",
+				"How unlikely or likely would you be to donate money to a {{affiliation}} cause/political candidate?"
+			],
+		"additional_questions_chart": [
+				"I will vote in the 2016 Presidential election.",
+				"I would sign a petition for a {{affiliation}} political cause.",
+				"I would donate money to a {{affiliation}} cause or political candidate.",
+				"I would like to work with other {{affiliation}}s to further our shared interests.",
+				"In the future I plan to be active in {{affiliation}} political causes.",
+				"Compared to {{other_affiliation}}s, I am confident that {{affiliation}}s have a large amount of political influence.",
+				"I identify with other {{affiliation}}s.",
+				"Being a {{affiliation}} is an important part of who I am.",
+				"I consider myself to be a {{affiliation}}.",
+				"{{cap_affiliation}}s are a group that sticks together.",
+				"I feel like {{affiliation}}s have a common vision for this country.",
+				"I feel {{affiliation}}s in this country can achieve their political goals.",
+				"{{cap_affiliation}}s are an effective force in American politics.",
+				"I believe that {{affiliation}}s will succeed at almost any endeavor they set their mind to."
+			],
+		"feel_questions": [
+				"Interested",
+				"Irritable",
+				"Distressed",
+				"Excited",
+				"Ashamed",
+				"Upset",
+				"Inspired",
+				"Guilty",
+				"Determined",
+				"Scared",
+				"Attentive",
+				"Hostile",
+				"Enthusiastic",
+				"Active",
+				"Proud",
+				"Afraid",
+				"Happy",
+				"United"
+			],
+		"interaction_questions": [
+				"Please describe your experience interacting with the other participants in the study. What did you think about them? What was it like interacting with them? (Please write 2-3 sentences)",
+				"What did you think about while taking part in the study? (Please write 2-3 sentences)"
+			]
+	}
+}

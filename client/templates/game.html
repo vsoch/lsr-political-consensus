@@ -1,0 +1,220 @@
+<template name="consentForm">
+
+	<h3>Informed Consent Page</h3>
+
+	<p>If you agree to be in this study, you will be paired with {{n_other_players}} other individuals. Throughout the course of the study you will provide your attitudes on a variety of different political issues. When you complete the study, an explanation of it will be provided. </p>
+	<p>There are no known risks associated with your participation in this research beyond those of everyday life. Taking part in this study is voluntary. If you withdraw at any time, you will receive no monetary compensation, otherwise you will receive the amount specified in the description of the HIT. </p>
+	<p>Confidentiality of your research records will be strictly maintained by not collecting any identifying information and by assigning unique code numbers to the materials: answers cannot be traced back to you. The data from the study will be kept at least 5 years after publication, as recommended by the American Psychological Association, and then destroyed.</p>
+	<p>If there is anything about the study or taking part in it that is unclear or that you do not understand, you may contact the requester of the HIT.</p>
+	<br>
+
+	<p>I agree to participate:</p>
+	<form id="consent-form">
+		<label><input type="radio" name="consent-response" value="yes"/>&nbsp;Yes</label>
+		<label><input type="radio" name="consent-response" value="no"/>&nbsp;No</label>
+		<div class="message">{{form_message}}</div>
+		<button type="submit">Submit</button>
+	</form>
+
+</template>
+
+
+<template name="waitingForPlayers">
+	<h3>Waiting Room</h3>
+
+	{{#unless was_ditched}}
+	<p>Thank you for signing up to complete this study! In this study you will be part of a group with {{n_other_players}} other individuals. The study will begin after the rest of the people in your group join the study. </p>
+	{{/unless}}
+
+	<p>We are currently waiting on {{num_waiting_on}} other {{person_word}} to begin the study, and will begin shortly.</p>
+	
+	<br>
+
+</template>
+
+<template name="responseItem">
+	<p>Player {{curr_turn_idx}}: <strong>{{choice}}</strong></p>
+</template>
+
+<template name="waitingForGameStart">
+	<p>Your practice round is complete.</p>
+
+	{{#if player_is_ready}}
+	<p>Please wait for the other group members to complete the practice round, and be ready to start.</p>
+
+	<p>Waiting for {{num_waiting_on}} {{player_word}} to finish...</p>
+
+	<br>
+	{{else}}
+	<p>Please click the button below to indicate that you are ready to start the study. Note that you will now be interacting with REAL people, so please be ready to start.</p>
+	<form id="ready-form">
+	<button type="submit">Ready</button>
+	</form>
+
+	{{/if}}
+	
+</template>
+
+<template name="game">
+	<div>
+		<p>Hello, Player {{turn_idx}}</p>
+		<p><strong>
+		{{#if is_inter_round}}
+			Status: Progressing to next round...
+		{{else}}
+			{{# if your_turn}}
+			Status: <u>It's your turn!</u>
+			{{else}}
+			Status: Waiting for player {{curr_idx}} to answer
+			{{/if}}
+		{{/if}}</strong></p>
+		
+	</div>
+	<hr>
+	<div><p>Issue #{{round_idx}}:</p>
+	</div>
+	<div>
+	<p><center>
+	{{#unless is_inter_round}}
+		{{# if your_turn}}
+		<p>Please indicate how much you oppose or support the following political position using a 1 ({{min_opinion}}) to {{choices_per_question}} ({{max_opinion}}) scale.</p>
+		{{else}}
+		Please wait while player {{curr_idx}} indicates how much they oppose or support the following political position using the scale below.
+		{{/if}}
+	{{/unless}}
+	</center></p>
+	</div>
+	<div><strong><center><p>{{prompt}}</p></center></strong></div>
+	<div><center>
+	{{#if is_inter_round}}
+		<p>All players have now provided responses. We will proceed shortly to the next round.</p>
+	{{else}}
+		<br/>
+		{{#each values_per_choice}}
+		<div style="display: inline-block; width: 100px; border-style:solid; border-color:white;"><em>{{value}}</em></div>
+		{{/each}}
+		<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		{{#each optionrange}}
+			{{index}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		{{/each}}
+		<br/>
+		{{#if your_turn}}
+		<form id="round-submit">
+
+			<div style="padding: 0px;">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		{{#each optionrange}}
+			<input type="radio" name="choice" value="{{index}}" id="choice-{{index}}" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			{{/each}}
+			</div>
+			<br/>
+			<br/>
+			<button type="submit">Submit your answer</button>
+		</form>
+		{{else}}
+		<p>Waiting for Player {{curr_idx}}'s response</p>
+		{{/if}}
+	{{/if}}
+	</center></div>
+	<hr>
+	<div><p>Your group's responses:</p></div>
+	<div class="container">
+		{{#each responses}}
+		{{> responseItem}}
+		{{/each}}
+	</div>
+	<hr>
+
+	
+</template>
+
+<template name="summary">
+	<h3>Response Summary</h3>
+	<div>
+		<p>Please take a moment to look over the other players' responses. Once you are done, click the below "continue" button to progress.</p>
+	</div>
+	<h4>Responses</h4>
+	{{#each rounds}}
+		{{> roundItem}}
+		<br/>
+	{{/each}}
+	<br/>
+	<form id="summary-continue">
+	<button type="submit">Continue</button>
+	</form>
+</template>
+
+<template name="roundItem">
+	<div>
+		<p>Political Issue #{{round_idx}}:</p>
+	</div>
+	<div>
+		<p> {{prompt}}</p>
+	</div>
+	<div class="container">
+		{{#each responses}}
+		{{> responseItem}}
+		{{/each}}
+	</div>
+</template>
+
+<template name="postsurvey">
+<p>Please take a moment to answer the following questions:</p>
+<div>
+	<form id="postsurvey-form">
+		<p>What do you think the study was about? Did you notice anything strange about the study?</p> 
+		<textarea type="text" id="postsurvey-weird" rows="5" cols="25"></textarea>
+		<p>Do you have any comments for us?</p> 
+		<textarea type="text" id="postsurvey-comments" rows="5" cols="25"></textarea>
+		<div class="message">{{form_message}}</div>
+	<button type="submit">Submit</button>
+	</form>
+</div>
+
+</template>	
+
+<template name="exitScreen">
+
+	<h3>Debriefing and Payment Information</h3>
+
+	{{#if noconsent}}
+		<p>We're sorry about that.</p>
+	{{else}}
+		{{#if dead}}
+
+			{{#if killed}}
+			Sorry, it looks like one of the other players has left the study. We still want you to get credit for your work, so please follow the instructions below.
+			{{else}}
+			Sorry about that. Please follow the instructions below to receive (partial) credit for your work, and thanks for your participation.
+			{{/if}}
+		{{else}}
+			<p>Thank you for completing the study! In this study we were interested in the political attitudes that liberals and conservatives would report after seeing the attitudes of like-minded others. You were paired with three other people who reported the same political ideology (liberal or conservative) as you did in a survey that you completed several weeks ago. We were interested in whether people might differ in their tendency to conform to their fellow group members’ attitudes. For example, liberals might do this more than conservatives, or conservatives might do this more than liberals.</p>
+
+		{{/if}}
+	{{/if}}
+
+	{{#if answered_end_survey}}
+		{{#if is_mturk}}
+			<p>To submit this HIT on Mechanical Turk, navigate back to the HIT and submit the following code:</p>
+			<center><h4>{{completion_code}}</h4></center>
+		{{else}}
+			<p>To get credit for this task on sona-systems, please click on the link below (or copy-paste it into your browser's location bar):</p>
+			<a href="{{sona_url}}">{{sona_url}}</a>
+		{{/if}}
+	{{else}}
+		<form id="enough-form">
+			<p>Do you feel adequately debriefed about the nature of this study?</p>
+			<input type="radio" name="enough-response" value="Yes"/>&nbsp;Yes<br/>
+			<input type="radio" name="enough-response" value="No"/>&nbsp;No<br/>
+			<div class="message">{{form_message}}</div>
+			<button type="submit">Submit</button>
+		</form>
+	{{/if}}
+
+</template>
+
+
+
+

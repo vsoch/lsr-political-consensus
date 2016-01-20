@@ -1,0 +1,83 @@
+<template name="example">
+
+		<p>Before you begin we would like to familiarize you with the screen format in the study, which appears below. After you have reviewed the format, you will complete one simulated practice round before beginning the actual study. <strong>If the list of options (Strongly Oppose ... Strongly Support) does not display on a single line, please maximize your browser window.</strong></p>
+
+		<div class="flippable instructions-0 blue-text">
+			<p><strong>The status bar will indicate whose turn it is during each round. When it is your turn, the status bar will indicate, “<u>It’s your turn!</u>” When it is someone else’s turn, the status bar will indicate, “<u>Waiting for player X to answer.</u>” Please pay attention to the status bar so that you will know when it is time for you to submit your attitude.</strong></p>
+		</div>
+
+		<div class="flippable instructions-1 blue-text">
+			<p><strong>When you begin the study the first political issue will be displayed where “<u>Political issue will appear here</u>” is shown. For each round, one member of your group will be randomly chosen to report their attitude first. The order of reporting attitudes will be rotated for each item so that all group members will respond in each possible order (i.e., first, second, third, and fourth) an equal number of times throughout the study. </strong></p>
+		</div>
+
+		<div class="flippable instructions-2 blue-text">
+			<p><strong>When it is your turn to report your attitude, buttons will appear under the response options for you to select your answer. All attitudes will be reported using a 1 ({{min_opinion}}) to {{choices_per_question}} ({{max_opinion}}) scale.</strong></p>
+		</div>
+
+		<div class="flippable instructions-3 blue-text">
+			<p><strong>The attitudes that you and the rest of your group report will appear under “<u>Your group’s responses</u>.”</strong></p>
+		</div>
+
+		<hr>
+
+		<p>Hello, Player {{turn_idx}}</p>
+		<p>Status: <span class="outline-0"><strong>This is where we will tell you whose turn it is to answer</strong></span></p>
+
+		<hr>
+
+		<p>Issue #1:</p>
+		<p>Please indicate how much you oppose or support the following political issue using a 1 ({{min_opinion}}) to {{choices_per_question}} ({{max_opinion}})  scale.</p>
+
+		<center>
+			<div class="outline-1"><strong><center><p>Political issue will appear here</p></center></strong></div>
+			<br/>
+
+			{{#each values_per_choice}}
+			<div style="display: inline-block; width: 100px; border-style:solid; border-color:white;"><em>{{value}}</em></div>
+			{{/each}}
+			<br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			{{#each optionrange}}
+				{{index}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			{{/each}}
+
+			<form id="round-submit"  >
+
+				<div class="outline-2">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<div class="flippable instructions-2">
+			{{#each optionrange}}
+			
+				<input type="radio" name="choice" value="{{index}}" id="choice-{{index}}" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			{{/each}}
+			</div>
+				</div>
+				<br/>
+				<span class="outline-2"><strong>Buttons will appear above when it is your turn to select an answer.</strong></span>
+				<br/>
+				<br/>
+			
+			</form>
+			
+			<br/><br/>
+
+		</center>
+
+		<hr>
+		<div class="outline-3">
+		<p>Your group's responses:</p>
+		<div class="container">
+			<p>Player {{D}}: <strong>Player {{D}}'s answer</strong></p>
+			<p>Player {{B}}: <strong>Player {{B}}'s answer</strong></p>
+		</div>
+		</div>
+
+		<br>
+		<div class="outline-3 flippable instructions-3"><span >Your group's responses will appear above as they answer.</span></div>
+		<br>
+		<form id="example-continue">
+			<input type="submit" value="Continue"/>
+		</form>
+
+</template>

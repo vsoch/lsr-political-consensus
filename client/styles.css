@@ -1,0 +1,20 @@
+.message {
+	color: red;
+}
+
+.flippable{
+	display: none;
+}
+
+.blue-text{
+	color: blue;
+}
+
+table { table-layout: fixed; }
+.options th { width: 100px; padding: 3px; font-weight: normal;}
+.questionnaire th { width: 100px; padding: 3px;}
+
+.questionnaire tr:nth-of-type(even) {
+      background-color:#E0F0FF;
+    }
+

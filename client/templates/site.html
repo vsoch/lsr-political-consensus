@@ -1,0 +1,77 @@
+<template name="notFound">
+	<p>Page not found.</p>
+</template>
+
+<template name="loading">
+	{{> spinner}}
+</template>
+
+<template name="accessDenied">
+	<p>You're not supposed to be here!</p>
+</template>
+
+<template name="siteBase">
+
+	<title>Political Attitudes Study</title>
+	<h1>Political Attitudes Study</h1>
+	<hr>
+
+	{{#if was_ditched}}
+	{{#unless close_ditched_message}}
+	<p>Sorry, it looks like someone in your group has left. We have reassigned you to a new group.</p>
+	{{/unless}}
+	{{/if}}
+
+	{{#if player_missing}}
+	<p>Sorry, it seems like at least one other participant has exited the game. Please refresh the page in case this is a mistake. If after refreshing this message is still displayed, then please click OK to {{exit_bar_message}}. Alternatively, you may wait for the participant to rejoin.</p>
+	<form id="exit-form">	
+		<button type="submit">OK</button>
+	</form>
+	{{/if}}
+
+	<div class="container">
+		{{> yield}}
+	</div>
+
+	<script type="text/javascript">
+		window.doorbellOptions = {
+			appKey: 'zPioLMltAJ5JT9Bm9qRif1yHsXHXzQWLKAHixvHMTkT96Fpwa0uX74SBibyMF4L4'
+		};
+		(function(d, t) {
+			var g = d.createElement(t);g.id = 'doorbellScript';g.type = 'text/javascript';g.async = true;g.src = 'https://embed.doorbell.io/button/1940?t='+(new Date().getTime());(d.getElementsByTagName('head')[0]||d.getElementsByTagName('body')[0]).appendChild(g);
+		}(document, 'script'));
+	</script>
+
+</template>
+
+<template name="home">
+	<div class="container">
+		<h3><a href='admin'>Admin</a></h3>
+		<h3><a href='game'>Game</a></h3>
+	</div>
+</template>
+
+<template name="login">
+	<p>Please enter your ID. If you accessed the study from a Mechanical Turk, this is your worker ID; if you accessed the study from sona-systems, this will be your sona-systems userID. You may also want to try clicking on the URL within your study again. (If you are accessing this site for the very first time, and have not yet encountered the informed consent page, something is wrong, so please click on the "feedback" button below!</p>
+	<div class="message">{{login_message}}</div>
+	<form id="game-login-form" action="#">
+		<div>
+			<input type="text" id="worker-id"/>
+			<input type="submit" value="Sign in"/>
+		</div>
+	</form>
+</template>
+
+<template name="sonaLogin">
+	<p>Please enter your sona-systems username.</p>
+	<p>Note: Your Sona ID is a 5 digit number that will allow you to take this study. To find your 5-Digit Sona ID, you must follow these steps after you login to Sona (<a href="https://stanford-lsr.sona-systems.com">https://stanford-lsr.sona-systems.com</a>):</p>
+	<p>1) Click "My Profile"</p>
+	<p>2) Look for the words "Identity Code". Your ID number is 5 digits.</p>
+	<div class="message">{{login_message}}</div>
+	<form id="sona-login-form" action="#">
+		<div>
+			<input type="text" id="sona-id"/>
+			<input type="submit" value="Sign in"/>
+		</div>
+	</form>
+</template>

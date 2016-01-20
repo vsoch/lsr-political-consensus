@@ -1,0 +1,141 @@
+URLS: 
+	http://polistudy-debug.meteor.com/start?source=mturk&experiment_id=lib&worker_id=chrome_0
+	http://polistudy-debug.meteor.com/start?source=mturk&experiment_id=lib&worker_id=firefox_0
+	http://polistudy-debug.meteor.com/start?source=mturk&experiment_id=lib&worker_id=opera_0
+	http://polistudy-debug.meteor.com/start?source=mturk&experiment_id=lib&worker_id=safari_0
+WAIT EVENTS: 
+	none
+INSTR EVENTS: 
+	none
+GAME EVENTS: 
+	none
+
+URLS: 
+	http://polistudy-debug.meteor.com/start?source=sona&experiment_id=lib&survey_code=chrome_code1
+		sona ID: chrome_1
+	http://polistudy-debug.meteor.com/start?source=mturk&experiment_id=lib&worker_id=firefox_1
+	http://polistudy-debug.meteor.com/start?source=mturk&experiment_id=lib&worker_id=opera_1
+	http://polistudy-debug.meteor.com/start?source=mturk&experiment_id=lib&worker_id=safari_1
+WAIT EVENTS: 
+	none
+INSTR EVENTS: 
+	opera exits and game is not saved
+	go to http://polistudy-debug.meteor.com/start?source=sona&experiment_id=lib&worker_id=opera_1_ret
+GAME EVENTS: 
+	safari exits
+
+URLS: 
+	http://polistudy-debug.meteor.com/start?source=mturk&experiment_id=lib&worker_id=chrome_2
+	http://polistudy-debug.meteor.com/start?source=sona&experiment_id=lib&survey_code=firefox_code2
+		sona ID: firefox_2
+	http://polistudy-debug.meteor.com/start?source=sona&experiment_id=lib&survey_code=opera_code2
+		sona ID: opera_2
+	http://polistudy-debug.meteor.com/start?source=mturk&experiment_id=lib&worker_id=safari_2
+WAIT EVENTS: 
+	none
+INSTR EVENTS: 
+	opera exits but returns
+GAME EVENTS: 
+	opera exits
+
+URLS: 
+	http://polistudy-debug.meteor.com/start?source=sona&experiment_id=lib&survey_code=chrome_code3
+		sona ID: chrome_3
+	http://polistudy-debug.meteor.com/start?source=sona&experiment_id=lib&survey_code=firefox_code3
+		sona ID: firefox_3
+	http://polistudy-debug.meteor.com/start?source=mturk&experiment_id=lib&worker_id=opera_3
+	http://polistudy-debug.meteor.com/start?source=mturk&experiment_id=lib&worker_id=safari_3
+WAIT EVENTS: 
+	safari exits and returns
+INSTR EVENTS: 
+	opera exits and game is not saved
+	go to http://polistudy-debug.meteor.com/start?source=sona&experiment_id=lib&worker_id=opera_3_ret
+GAME EVENTS: 
+	none
+
+URLS: 
+	http://polistudy-debug.meteor.com/start?source=mturk&experiment_id=lib&worker_id=chrome_4
+	http://polistudy-debug.meteor.com/start?source=sona&experiment_id=lib&survey_code=firefox_code4
+		sona ID: firefox_4
+	http://polistudy-debug.meteor.com/start?source=mturk&experiment_id=lib&worker_id=opera_4
+	http://polistudy-debug.meteor.com/start?source=sona&experiment_id=lib&survey_code=safari_code4
+		sona ID: safari_4
+WAIT EVENTS: 
+	firefox exits and returns
+INSTR EVENTS: 
+	opera exits and game is not saved
+	go to http://polistudy-debug.meteor.com/start?source=mturk&experiment_id=lib&worker_id=opera_4_ret
+GAME EVENTS: 
+	none
+
+URLS: 
+	http://polistudy-debug.meteor.com/start?source=mturk&experiment_id=lib&worker_id=chrome_5
+	http://polistudy-debug.meteor.com/start?source=sona&experiment_id=lib&survey_code=firefox_code5
+		sona ID: firefox_5
+	http://polistudy-debug.meteor.com/start?source=sona&experiment_id=lib&survey_code=opera_code5
+		sona ID: opera_5
+	http://polistudy-debug.meteor.com/start?source=sona&experiment_id=lib&survey_code=safari_code5
+		sona ID: safari_5
+WAIT EVENTS: 
+	none
+INSTR EVENTS: 
+	chrome exits but returns
+GAME EVENTS: 
+	firefox exits
+
+URLS: 
+	http://polistudy-debug.meteor.com/start?source=mturk&experiment_id=cons&worker_id=chrome_6
+	http://polistudy-debug.meteor.com/start?source=mturk&experiment_id=cons&worker_id=firefox_6
+	http://polistudy-debug.meteor.com/start?source=mturk&experiment_id=cons&worker_id=opera_6
+	http://polistudy-debug.meteor.com/start?source=mturk&experiment_id=cons&worker_id=safari_6
+WAIT EVENTS: 
+	chrome exits and returns
+INSTR EVENTS: 
+	opera exits and game is not saved
+	go to http://polistudy-debug.meteor.com/start?source=sona&experiment_id=cons&worker_id=opera_6_ret
+GAME EVENTS: 
+	none
+
+URLS: 
+	http://polistudy-debug.meteor.com/start?source=mturk&experiment_id=cons&worker_id=chrome_7
+	http://polistudy-debug.meteor.com/start?source=sona&experiment_id=cons&survey_code=firefox_code7
+		sona ID: firefox_7
+	http://polistudy-debug.meteor.com/start?source=mturk&experiment_id=cons&worker_id=opera_7
+	http://polistudy-debug.meteor.com/start?source=sona&experiment_id=cons&survey_code=safari_code7
+		sona ID: safari_7
+WAIT EVENTS: 
+	none
+INSTR EVENTS: 
+	firefox exits but returns
+GAME EVENTS: 
+	safari exits
+
+URLS: 
+	http://polistudy-debug.meteor.com/start?source=mturk&experiment_id=cons&worker_id=chrome_8
+	http://polistudy-debug.meteor.com/start?source=sona&experiment_id=cons&survey_code=firefox_code8
+		sona ID: firefox_8
+	http://polistudy-debug.meteor.com/start?source=sona&experiment_id=cons&survey_code=opera_code8
+		sona ID: opera_8
+	http://polistudy-debug.meteor.com/start?source=sona&experiment_id=cons&survey_code=safari_code8
+		sona ID: safari_8
+WAIT EVENTS: 
+	firefox exits and returns
+INSTR EVENTS: 
+	opera exits but returns
+GAME EVENTS: 
+	opera exits
+
+URLS: 
+	http://polistudy-debug.meteor.com/start?source=mturk&experiment_id=cons&worker_id=chrome_9
+	http://polistudy-debug.meteor.com/start?source=mturk&experiment_id=cons&worker_id=firefox_9
+	http://polistudy-debug.meteor.com/start?source=sona&experiment_id=cons&survey_code=opera_code9
+		sona ID: opera_9
+	http://polistudy-debug.meteor.com/start?source=sona&experiment_id=cons&survey_code=safari_code9
+		sona ID: safari_9
+WAIT EVENTS: 
+	none
+INSTR EVENTS: 
+	none
+GAME EVENTS: 
+	none
+

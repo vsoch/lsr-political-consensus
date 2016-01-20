@@ -1,0 +1,81 @@
+<template name="additionalQuestions">
+<p>Please take a moment to complete the post-game survey below:</p>
+<div>
+<center>
+<form id="add-qs">
+	<p>Please indicate how strongly you disagree or agree with the following statements using a 1 (Strongly Disagree) to 7 (Strongly Agree) scale.</p>
+	<br>
+	<table class="questionnaire">
+	<col span="1" width="400">
+	<tr>
+	<th></th>
+	{{#each optionrange_chart}}
+	<th><center>{{value}}<br>{{idx}}</center></th>
+	{{/each}}
+	</tr>
+	{{#each chart_question}}
+	<tr>
+		<td>{{text}}</td>
+		{{#each choices}}
+		<td align="center"><input type="radio" name="question-{{idx}}" value="{{value}}"></td>
+		{{/each}}
+	</tr>
+	<br/>
+	{{/each}}
+	</table>
+	<br>
+	<div class="message">{{post_form_message}}</div>
+
+	<button type="submit">Submit your responses</button>
+</form>
+</center>
+</div>
+</template>
+
+<template name="feelQuestions">
+<p>Below, choose the answers that best describe your feelings and emotions while interacting with the other participants.</p>
+<div>
+<center>
+<form id="feel-qs">
+	<p>To what extent did you feel...</p>
+	<br>
+	<table class="questionnaire">
+	<col span="1" width="50">
+	<tr>
+	<th></th>
+	{{#each optionrange}}
+	<th><center>{{value}}<br>{{idx}}</center></th>
+	{{/each}}
+	</tr>
+	{{#each question}}
+	<tr>
+		<td>{{text}}</td>
+		{{#each choices}}
+		<td align="center"><input type="radio" name="question-{{idx}}" value="{{value}}"></td>
+		{{/each}}
+	</tr>
+	<br/>
+	{{/each}}
+	</table>
+	<br>
+	<div class="message">{{post_form_message}}</div>
+
+	<button type="submit">Submit your responses</button>
+</form>
+</center>
+</div>
+</template>
+
+<template name="interactionQuestions">
+<div>
+	<form id="interaction-form">
+	{{#each question}}
+		<p>{{prompt}}</p>
+		<textarea type="text" name="question-{{idx}}" id="interaction-{{idx}}" rows="5" cols="25"></textarea>
+		<br>
+	{{/each}}
+	<div class="message">{{post_form_message}}</div>
+	<button type="submit">Submit</button>
+	</form>
+</div>
+</template>

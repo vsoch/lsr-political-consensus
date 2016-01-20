@@ -1,0 +1,78 @@
+<template name="admin">
+
+	<p>You are the master of this study.</p>
+	<br>
+
+	<h3>sona-systems settings</h3>
+	<p>Liberal experiment ID: {{sona_settings.sona_lib_id}}</p>
+	<p>Liberal experiment credit token: {{sona_settings.sona_lib_cred_token}}</p>
+	<p>Conservative experiment ID: {{sona_settings.sona_cons_id}}</p>
+	<p>Conservative experiment credit token: {{sona_settings.sona_cons_cred_token}}</p>
+	<br>
+
+	<form id="edit-sona-settings" action="#">
+
+		<label for="sona_lib_id">Liberal experiment ID:</label>
+		<input type="text" id="sona_lib_id"/>
+		<br>
+
+		<label for="sona_lib_cred_token">Liberal experiment credit token:</label>
+		<input type="text" id="sona_lib_cred_token"/>
+		<br>
+
+		<label for="sona_cons_id">Conservative experiment ID:</label>
+		<input type="text" id="sona_cons_id"/>
+		<br>
+
+		<label for="sona_cons_cred_token">Conservative experiment credit token:</label>
+		<input type="text" id="sona_cons_cred_token"/>
+
+		<input type="submit" value="Update"/>
+	</form>
+	<br>
+
+	<a href="results">Download Results</a><br/>
+	<a href="additionalQuestions">Download Additional Question Responses</a>
+
+</template>
+
+<template name="adminBase">
+
+	<title>Political Attitudes Study - Admin</title>
+	<h1>Political Attitudes Study - Admin</h1>
+	<hr>
+
+	<div class="container">
+		{{> yield}}
+	</div>
+
+	<script type="text/javascript">
+		window.doorbellOptions = {
+			appKey: 'zPioLMltAJ5JT9Bm9qRif1yHsXHXzQWLKAHixvHMTkT96Fpwa0uX74SBibyMF4L4'
+		};
+		(function(d, t) {
+			var g = d.createElement(t);g.id = 'doorbellScript';g.type = 'text/javascript';g.async = true;g.src = 'https://embed.doorbell.io/button/1940?t='+(new Date().getTime());(d.getElementsByTagName('head')[0]||d.getElementsByTagName('body')[0]).appendChild(g);
+		}(document, 'script'));
+	</script>
+
+</template>
+
+<template name="adminLogin">
+
+	<p>Please enter the admin password.</p>
+	<div class="message">{{login_message}}</div>
+
+	<form id="admin-login-form" action="#">
+		<div>
+			<input type="password" id="admin-password"/>
+			<input type="submit" value="Sign in"/>
+		</div>
+	</form>
+
+</template>
+
+
+
+
+
+

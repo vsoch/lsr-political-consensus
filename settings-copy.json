@@ -1,0 +1,72 @@
+{
+	"admin_password": "spaceman",
+
+	"version": "regular", 
+
+	"idle_threshold": 30000,
+	
+	"instruction_quiz_answers": [2,2],
+	
+	"public": {
+		"debug": true,
+		"n_players": 4,
+		"choices_per_question": 7,
+		"instruction_quiz_questions:": [
+				{
+					"prompt": "How many people will be in your group, including you?",
+					"choices": ["Two","Three","Four","Five"]
+				},
+				{
+					"prompt": "How many members of your group will report their attitude for each political issue?",
+					"choices": ["One group member", "Half of the group members", "All of the group members"]
+				}
+			],
+		"values_per_choice": [
+				{"value":"Strongly Oppose"},
+				{"value":"Moderately Oppose"},
+				{"value":"Slightly Oppose"},
+				{"value":"Neither Oppose Nor Support"},
+				{"value":"Slightly Support"},
+				{"value":"Moderately Support"},
+				{"value":"Strongly Support"}
+			],
+		
+		"practice_prompt": "Eliminating daylight savings time",
+		"practice_responses": [5,7,6],
+		"rounds": [
+				{
+					"order": [0,1,2,3],
+					"prompt": "The Affordable Care Act (Obamacare)"
+				},
+				{
+					"order": [2,0,3,1],
+					"prompt": "Interrogating suspected terrorists with extreme methods"
+				},
+				{
+					"order": [3,2,1,0],
+					"prompt": "Capital punishment (the death penalty)"
+				},
+				{
+					"order": [1,3,2,0],
+					"prompt": "Increasing restrictions on gun ownership"
+				},
+				{
+					"order": [2,3,0,1],
+					"prompt": "Providing a path to citizenship for undocumented immigrants"
+				},
+				{
+					"order": [0,2,1,3],
+					"prompt": "Legalizing marijuana"
+				},
+				{
+					"order": [3,1,0,2],
+					"prompt": "Increasing military spending"
+				},
+				{
+					"order": [1,0,3,2],
+					"prompt": "Increasing restrictions on welfare assistance"
+				}
+
+			]
+	}
+}

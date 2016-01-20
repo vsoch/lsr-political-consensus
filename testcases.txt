@@ -1,0 +1,725 @@
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=chrome_code0
+		sona ID: chrome_0
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=firefox_code0
+		sona ID: firefox_0
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=opera_code0
+		sona ID: opera_0
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=safari_code0
+		sona ID: safari_0
+WAIT EVENTS: 
+	none
+INSTR EVENTS: 
+	none
+GAME EVENTS: 
+	firefox exits
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=chrome_code1
+		sona ID: chrome_1
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=firefox_code1
+		sona ID: firefox_1
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=opera_code1
+		sona ID: opera_1
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=safari_code1
+		sona ID: safari_1
+WAIT EVENTS: 
+	opera exits and returns
+INSTR EVENTS: 
+	none
+GAME EVENTS: 
+	none
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=chrome_2
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=firefox_code2
+		sona ID: firefox_2
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=opera_2
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=safari_code2
+		sona ID: safari_2
+WAIT EVENTS: 
+	none
+INSTR EVENTS: 
+	chrome exits but returns
+GAME EVENTS: 
+	none
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=chrome_3
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=firefox_3
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=opera_code3
+		sona ID: opera_3
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=safari_3
+WAIT EVENTS: 
+	none
+INSTR EVENTS: 
+	safari exits but returns
+GAME EVENTS: 
+	firefox exits
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=chrome_code4
+		sona ID: chrome_4
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=firefox_code4
+		sona ID: firefox_4
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=opera_code4
+		sona ID: opera_4
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=safari_code4
+		sona ID: safari_4
+WAIT EVENTS: 
+	none
+INSTR EVENTS: 
+	firefox exits and game is not saved
+	go to http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=firefox_4_ret_code
+	sona ID: firefox_4_ret
+GAME EVENTS: 
+	opera exits
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=chrome_code5
+		sona ID: chrome_5
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=firefox_5
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=opera_code5
+		sona ID: opera_5
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=safari_5
+WAIT EVENTS: 
+	opera exits and returns
+INSTR EVENTS: 
+	none
+GAME EVENTS: 
+	none
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=chrome_code6
+		sona ID: chrome_6
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=firefox_6
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=opera_code6
+		sona ID: opera_6
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=safari_6
+WAIT EVENTS: 
+	none
+INSTR EVENTS: 
+	chrome exits and game is not saved
+	go to http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=chrome_6_ret
+GAME EVENTS: 
+	none
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=chrome_7
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=firefox_7
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=opera_code7
+		sona ID: opera_7
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=safari_code7
+		sona ID: safari_7
+WAIT EVENTS: 
+	safari exits and returns
+INSTR EVENTS: 
+	safari exits and game is not saved
+	go to http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=safari_7_ret
+GAME EVENTS: 
+	safari exits
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=chrome_code8
+		sona ID: chrome_8
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=firefox_8
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=opera_code8
+		sona ID: opera_8
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=safari_code8
+		sona ID: safari_8
+WAIT EVENTS: 
+	none
+INSTR EVENTS: 
+	firefox exits but returns
+GAME EVENTS: 
+	safari exits
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=chrome_9
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=firefox_9
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=opera_9
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=safari_9
+WAIT EVENTS: 
+	firefox exits and returns
+INSTR EVENTS: 
+	opera exits and game is not saved
+	go to http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=opera_9_ret_code
+	sona ID: opera_9_ret
+GAME EVENTS: 
+	firefox exits
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=chrome_code10
+		sona ID: chrome_10
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=firefox_10
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=opera_code10
+		sona ID: opera_10
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=safari_code10
+		sona ID: safari_10
+WAIT EVENTS: 
+	opera exits and returns
+INSTR EVENTS: 
+	none
+GAME EVENTS: 
+	none
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=chrome_11
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=firefox_11
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=opera_11
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=safari_11
+WAIT EVENTS: 
+	none
+INSTR EVENTS: 
+	opera exits and game is not saved
+	go to http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=opera_11_ret_code
+	sona ID: opera_11_ret
+GAME EVENTS: 
+	none
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=chrome_12
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=firefox_code12
+		sona ID: firefox_12
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=opera_12
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=safari_code12
+		sona ID: safari_12
+WAIT EVENTS: 
+	none
+INSTR EVENTS: 
+	none
+GAME EVENTS: 
+	safari exits
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=chrome_13
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=firefox_13
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=opera_13
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=safari_13
+WAIT EVENTS: 
+	chrome exits and returns
+INSTR EVENTS: 
+	opera exits and game is not saved
+	go to http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=opera_13_ret
+GAME EVENTS: 
+	safari exits
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=chrome_code14
+		sona ID: chrome_14
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=firefox_14
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=opera_14
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=safari_14
+WAIT EVENTS: 
+	none
+INSTR EVENTS: 
+	firefox exits and game is not saved
+	go to http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=firefox_14_ret_code
+	sona ID: firefox_14_ret
+GAME EVENTS: 
+	chrome exits
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=chrome_code15
+		sona ID: chrome_15
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=firefox_code15
+		sona ID: firefox_15
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=opera_15
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=safari_code15
+		sona ID: safari_15
+WAIT EVENTS: 
+	opera exits and returns
+INSTR EVENTS: 
+	safari exits but returns
+GAME EVENTS: 
+	none
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=chrome_16
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=firefox_code16
+		sona ID: firefox_16
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=opera_code16
+		sona ID: opera_16
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=safari_code16
+		sona ID: safari_16
+WAIT EVENTS: 
+	safari exits and returns
+INSTR EVENTS: 
+	safari exits but returns
+GAME EVENTS: 
+	chrome exits
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=chrome_code17
+		sona ID: chrome_17
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=firefox_code17
+		sona ID: firefox_17
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=opera_code17
+		sona ID: opera_17
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=safari_code17
+		sona ID: safari_17
+WAIT EVENTS: 
+	none
+INSTR EVENTS: 
+	none
+GAME EVENTS: 
+	none
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=chrome_code18
+		sona ID: chrome_18
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=firefox_18
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=opera_18
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=safari_code18
+		sona ID: safari_18
+WAIT EVENTS: 
+	opera exits and returns
+INSTR EVENTS: 
+	firefox exits and game is not saved
+	go to http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=firefox_18_ret_code
+	sona ID: firefox_18_ret
+GAME EVENTS: 
+	none
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=chrome_19
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=firefox_19
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=opera_code19
+		sona ID: opera_19
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=safari_19
+WAIT EVENTS: 
+	none
+INSTR EVENTS: 
+	none
+GAME EVENTS: 
+	opera exits
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=chrome_20
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=firefox_20
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=opera_code20
+		sona ID: opera_20
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=safari_20
+WAIT EVENTS: 
+	safari exits and returns
+INSTR EVENTS: 
+	chrome exits and game is not saved
+	go to http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=chrome_20_ret_code
+	sona ID: chrome_20_ret
+GAME EVENTS: 
+	none
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=chrome_code21
+		sona ID: chrome_21
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=firefox_code21
+		sona ID: firefox_21
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=opera_21
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=safari_21
+WAIT EVENTS: 
+	none
+INSTR EVENTS: 
+	chrome exits but returns
+GAME EVENTS: 
+	none
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=chrome_code22
+		sona ID: chrome_22
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=firefox_22
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=opera_code22
+		sona ID: opera_22
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=safari_code22
+		sona ID: safari_22
+WAIT EVENTS: 
+	none
+INSTR EVENTS: 
+	firefox exits but returns
+GAME EVENTS: 
+	none
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=chrome_code23
+		sona ID: chrome_23
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=firefox_23
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=opera_23
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=safari_code23
+		sona ID: safari_23
+WAIT EVENTS: 
+	firefox exits and returns
+INSTR EVENTS: 
+	none
+GAME EVENTS: 
+	chrome exits
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=chrome_24
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=firefox_24
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=opera_code24
+		sona ID: opera_24
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=safari_code24
+		sona ID: safari_24
+WAIT EVENTS: 
+	none
+INSTR EVENTS: 
+	opera exits but returns
+GAME EVENTS: 
+	safari exits
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=chrome_code25
+		sona ID: chrome_25
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=firefox_code25
+		sona ID: firefox_25
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=opera_25
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=safari_25
+WAIT EVENTS: 
+	chrome exits and returns
+INSTR EVENTS: 
+	firefox exits and game is not saved
+	go to http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=firefox_25_ret_code
+	sona ID: firefox_25_ret
+GAME EVENTS: 
+	none
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=chrome_code26
+		sona ID: chrome_26
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=firefox_26
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=opera_26
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=safari_code26
+		sona ID: safari_26
+WAIT EVENTS: 
+	none
+INSTR EVENTS: 
+	opera exits and game is not saved
+	go to http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=opera_26_ret_code
+	sona ID: opera_26_ret
+GAME EVENTS: 
+	firefox exits
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=chrome_code27
+		sona ID: chrome_27
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=firefox_code27
+		sona ID: firefox_27
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=opera_code27
+		sona ID: opera_27
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=safari_27
+WAIT EVENTS: 
+	none
+INSTR EVENTS: 
+	none
+GAME EVENTS: 
+	firefox exits
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=chrome_code28
+		sona ID: chrome_28
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=firefox_28
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=opera_28
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=safari_code28
+		sona ID: safari_28
+WAIT EVENTS: 
+	none
+INSTR EVENTS: 
+	none
+GAME EVENTS: 
+	none
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=chrome_29
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=firefox_29
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=opera_code29
+		sona ID: opera_29
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=safari_29
+WAIT EVENTS: 
+	chrome exits and returns
+INSTR EVENTS: 
+	chrome exits but returns
+GAME EVENTS: 
+	none
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=chrome_30
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=firefox_30
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=opera_code30
+		sona ID: opera_30
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=safari_code30
+		sona ID: safari_30
+WAIT EVENTS: 
+	chrome exits and returns
+INSTR EVENTS: 
+	firefox exits but returns
+GAME EVENTS: 
+	none
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=chrome_code31
+		sona ID: chrome_31
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=firefox_code31
+		sona ID: firefox_31
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=opera_31
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=safari_31
+WAIT EVENTS: 
+	none
+INSTR EVENTS: 
+	opera exits but returns
+GAME EVENTS: 
+	none
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=chrome_32
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=firefox_code32
+		sona ID: firefox_32
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=opera_code32
+		sona ID: opera_32
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=safari_32
+WAIT EVENTS: 
+	none
+INSTR EVENTS: 
+	opera exits and game is not saved
+	go to http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=opera_32_ret
+GAME EVENTS: 
+	none
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=chrome_code33
+		sona ID: chrome_33
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=firefox_code33
+		sona ID: firefox_33
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=opera_code33
+		sona ID: opera_33
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=safari_33
+WAIT EVENTS: 
+	none
+INSTR EVENTS: 
+	opera exits but returns
+GAME EVENTS: 
+	opera exits
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=chrome_34
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=firefox_code34
+		sona ID: firefox_34
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=opera_34
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=safari_34
+WAIT EVENTS: 
+	none
+INSTR EVENTS: 
+	none
+GAME EVENTS: 
+	safari exits
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=chrome_code35
+		sona ID: chrome_35
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=firefox_code35
+		sona ID: firefox_35
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=opera_code35
+		sona ID: opera_35
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=safari_35
+WAIT EVENTS: 
+	none
+INSTR EVENTS: 
+	firefox exits but returns
+GAME EVENTS: 
+	none
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=chrome_36
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=firefox_code36
+		sona ID: firefox_36
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=opera_36
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=safari_36
+WAIT EVENTS: 
+	none
+INSTR EVENTS: 
+	opera exits but returns
+GAME EVENTS: 
+	none
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=chrome_code37
+		sona ID: chrome_37
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=firefox_37
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=opera_code37
+		sona ID: opera_37
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=safari_code37
+		sona ID: safari_37
+WAIT EVENTS: 
+	none
+INSTR EVENTS: 
+	opera exits but returns
+GAME EVENTS: 
+	none
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=chrome_38
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=firefox_38
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=opera_38
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=safari_38
+WAIT EVENTS: 
+	none
+INSTR EVENTS: 
+	opera exits and game is not saved
+	go to http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=opera_38_ret
+GAME EVENTS: 
+	firefox exits
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=chrome_39
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=firefox_code39
+		sona ID: firefox_39
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=opera_39
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=safari_39
+WAIT EVENTS: 
+	chrome exits and returns
+INSTR EVENTS: 
+	none
+GAME EVENTS: 
+	none
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=chrome_code40
+		sona ID: chrome_40
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=firefox_code40
+		sona ID: firefox_40
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=opera_code40
+		sona ID: opera_40
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=safari_40
+WAIT EVENTS: 
+	firefox exits and returns
+INSTR EVENTS: 
+	none
+GAME EVENTS: 
+	none
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=chrome_code41
+		sona ID: chrome_41
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=firefox_code41
+		sona ID: firefox_41
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=opera_code41
+		sona ID: opera_41
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=safari_code41
+		sona ID: safari_41
+WAIT EVENTS: 
+	chrome exits and returns
+INSTR EVENTS: 
+	chrome exits but returns
+GAME EVENTS: 
+	firefox exits
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=chrome_code42
+		sona ID: chrome_42
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=firefox_code42
+		sona ID: firefox_42
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=opera_42
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=safari_code42
+		sona ID: safari_42
+WAIT EVENTS: 
+	none
+INSTR EVENTS: 
+	none
+GAME EVENTS: 
+	none
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=chrome_43
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=firefox_code43
+		sona ID: firefox_43
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=opera_43
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=safari_43
+WAIT EVENTS: 
+	safari exits and returns
+INSTR EVENTS: 
+	opera exits and game is not saved
+	go to http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=opera_43_ret_code
+	sona ID: opera_43_ret
+GAME EVENTS: 
+	none
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=chrome_code44
+		sona ID: chrome_44
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=firefox_code44
+		sona ID: firefox_44
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=opera_44
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=safari_code44
+		sona ID: safari_44
+WAIT EVENTS: 
+	none
+INSTR EVENTS: 
+	opera exits but returns
+GAME EVENTS: 
+	none
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=chrome_code45
+		sona ID: chrome_45
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=firefox_45
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=lib&survey_code=opera_code45
+		sona ID: opera_45
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=safari_45
+WAIT EVENTS: 
+	opera exits and returns
+INSTR EVENTS: 
+	safari exits and game is not saved
+	go to http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=safari_45_ret
+GAME EVENTS: 
+	none
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=chrome_46
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=firefox_code46
+		sona ID: firefox_46
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=opera_code46
+		sona ID: opera_46
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=safari_46
+WAIT EVENTS: 
+	none
+INSTR EVENTS: 
+	safari exits but returns
+GAME EVENTS: 
+	chrome exits
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=chrome_47
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=cons&worker_id=firefox_47
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=opera_code47
+		sona ID: opera_47
+	http://politicalattitudestudy.meteor.com/start?source=sona&experiment_id=cons&survey_code=safari_code47
+		sona ID: safari_47
+WAIT EVENTS: 
+	safari exits and returns
+INSTR EVENTS: 
+	none
+GAME EVENTS: 
+	none
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=chrome_48
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=firefox_48
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=opera_48
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=safari_48
+WAIT EVENTS: 
+	chrome exits and returns
+INSTR EVENTS: 
+	safari exits but returns
+GAME EVENTS: 
+	chrome exits
+
+URLS: 
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=chrome_49
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=firefox_49
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=opera_49
+	http://politicalattitudestudy.meteor.com/start?source=mturk&experiment_id=lib&worker_id=safari_49
+WAIT EVENTS: 
+	none
+INSTR EVENTS: 
+	none
+GAME EVENTS: 
+	none
+

@@ -1,0 +1,85 @@
+<template name="practice">
+	<div class="flippable instructions-0">
+		<p>You will now complete one simulated practice round. Please keep in mind that the responses you see in this <strong><u>practice round</u></strong> are <strong><u>not</u></strong> actually being provided by your group members and are simply being displayed to help orient you to the format of the study. Once this round is completed, you and your group will begin the actual study. </p>
+
+		<p>Please click the “Continue” button to continue to the simulated practice round. </p>
+
+		<form id="practice-continue">
+			<input type="submit" value="Continue"/>
+		</form>
+	</div>
+
+
+	<div class="flippable instructions-1">
+		<div>
+			<p>Hello, Player {{turn_idx}}</p>
+			<p><strong>
+			{{#if is_inter_round}}
+				Status: Progressing to next round...
+			{{else}}
+				{{# if your_turn}}
+				Status: <u>It's your turn!</u>
+				{{else}}
+				Status: Waiting for player {{curr_idx}} to answer
+				{{/if}}
+			{{/if}}</strong></p>
+			
+		</div>
+		<hr>
+		<div ><p>PRACTICE ROUND</p>
+		</div>
+		<div>
+		<p><center>
+		{{#unless is_inter_round}}
+			{{# if your_turn}}
+			<p>Please indicate how much you oppose or support the following position using a 1 ({{min_opinion}}) to {{choices_per_question}} (({{max_opinion}}) scale.</p>
+			{{else}}
+			Please wait while player {{curr_idx}} indicates how much they oppose or support the following position using the scale below.
+			{{/if}}
+		{{/unless}}
+		</center></p>
+		</div>
+		<div><strong><center><p>{{prompt}}</p></center></strong></div>
+		<div><center>
+		{{#if is_inter_round}}
+			<p>All players have now provided responses. We will shortly proceed to the next round.</p>
+		{{else}}
+			<br/>
+			{{#each values_per_choice}}
+			<div style="display: inline-block; width: 100px; border-style:solid; border-color:white;"><em>{{value}}</em></div>
+			{{/each}}
+			<br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			{{#each optionrange}}
+				{{index}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			{{/each}}
+			<br/>
+			{{#if your_turn}}
+			<form id="practice-round-submit">
+
+				<div style="padding: 0px;{{#if second_screen}}border-style:solid;border-color:red;{{/if}}">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			{{#each optionrange}}
+				<input type="radio" name="choice" value="{{index}}" id="choice-{{index}}" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				{{/each}}
+				</div>
+				<br/>
+				<br/>
+				<button type="submit">Submit your answer</button>
+			</form>
+			{{else}}
+			<p>Waiting for Player {{curr_idx}}'s response</p>
+			{{/if}}
+		{{/if}}
+		</center></div>
+		<hr>
+		<div><p>Your group's responses:</p></div>
+		<div>
+			{{#each responses}}
+			{{> responseItem}}
+			{{/each}}
+		</div>
+		<hr>
+	</div>
+</template>
