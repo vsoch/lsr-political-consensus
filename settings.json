@@ -139,7 +139,9 @@
 			],
 		"interaction_questions": [
 				"Please describe your experience interacting with the other participants in the study. What did you think about them? What was it like interacting with them? (Please write 2-3 sentences)",
-				"What did you think about while taking part in the study? (Please write 2-3 sentences)"
+				"What did you think about while taking part in the study? (Please write 2-3 sentences)",
+				"When you signed up for today's study, you completed a short survey. In the space below, please describe the questions you completed in that survey in your own words. (Please write 2-3 sentences)",
+				"How many research studies have you completed since you signed up for today's interactive study?"
 			]
 	}
 }
