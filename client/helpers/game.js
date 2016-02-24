@@ -295,6 +295,16 @@ Template.postsurvey.events({
 	}
 });
 
+Template.postsurvey2.events({
+	'submit #postsurvey2-form': function(e,t){
+		e.preventDefault();
+		var postsurvey_survey = $('#postsurvey-survey').val();
+		var postsurvey_studies = $('#postsurvey-studies').val();
+		Meteor.call('logPostsurvey2Response', postsurvey_survey, postsurvey_studies);
+		return false;
+	}
+});
+
 Template.exitScreen.events({
 
 	'submit #enough-form': function(e,t){

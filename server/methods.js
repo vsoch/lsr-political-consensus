@@ -203,6 +203,20 @@ Meteor.methods({
 			Workers.upsert(worker._id, {$set: 
 				{'post_game_responses.comments': clean_text_input(comments),
 				'post_game_responses.suspicions': clean_text_input(weird),
+				status: 'postsurvey2',
+				exit_reason: 'completed'}});
+
+		} else {
+			throw new Meteor.Error(403, 'Stop');
+		}
+	},
+
+	logPostsurvey2Response: function(survey, studies){
+		var worker = Workers.findOne(Meteor.user().username);
+		if (worker.status == 'postsurvey2'){
+			Workers.upsert(worker._id, {$set: 
+				{'post_game_responses.survey': clean_text_input(survey),
+				'post_game_responses.studies': clean_text_input(studies),
 				status: 'exited',
 				exit_reason: 'completed'}});
 
