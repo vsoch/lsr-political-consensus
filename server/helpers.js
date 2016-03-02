@@ -139,7 +139,7 @@ writePostgameFile = function(){
 	header = header.concat(Meteor.settings.public.additional_questions_chart);
 	header = header.concat(Meteor.settings.public.feel_questions);
 	header = header.concat(Meteor.settings.public.interaction_questions);
-	header = header.concat(['Suspicions','Comments','Adequately Debriefed?']);
+	header = header.concat(['Suspicions','Comments', 'Survey', 'Studies', 'Adequately Debriefed?']);
 	for (var i = 0; i < header.length; i++){
 		header[i] = clean_text_input(header[i]);
 	}
@@ -147,7 +147,9 @@ writePostgameFile = function(){
 	Workers.find({status: 'exited'}).forEach(function(worker){
 		lines.push(worker._id + ',' + worker.additional_qs.join(',') + ','
 						+ worker.feel_qs.join(',') + ',' + worker.interaction_qs.join(',') + ','
-						+ worker.post_game_responses.suspicions + ',' + worker.post_game_responses.comments 
+						+ worker.post_game_responses.suspicions + ',' + worker.post_game_responses.comments
+						+ ',' + worker.post_game_responses.survey
+						+ ',' + worker.post_game_responses.studies
 						+ ',' + worker.post_game_responses.adequately_debriefed);
 	});
 	return lines.join('\n');
