@@ -189,7 +189,7 @@ writeResultFile = function(){
 					var response_entries = [round_idx + 1, real_idx + 1, response.choice, response.time, '', '', ''];
 					var total_so_far = 0;
 					for (var i = 0; i < response_idx; i++){
-						response_entries[3 + i] = prev_responses[prev_responses.length - 1 - i];
+						response_entries[4 + i] = prev_responses[prev_responses.length - 1 - i];
 						total_so_far += parseInt(prev_responses[prev_responses.length  - 1 -i]);
 					}
 					prev_responses.push(response.choice);
