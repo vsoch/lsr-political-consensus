@@ -160,6 +160,7 @@
 	</div>
 </template>
 
+
 <template name="postsurvey">
 <p>Please take a moment to answer the following questions:</p>
 <div>
@@ -172,7 +173,20 @@
 	<button type="submit">Submit</button>
 	</form>
 </div>
+</template>	
 
+<template name="postsurvey2">
+<p>Please take a moment to answer the following questions:</p>
+<div>
+	<form id="postsurvey2-form">
+		<p>When you signed up for today's study, you completed a short survey. In the space below, please describe the questions you completed in that survey in your own words. (Please write 2-3 sentences)</p>
+		<textarea required type="text" id="postsurvey-survey" rows="5" cols="25"></textarea>
+		<p>How many research studies have you completed since you signed up for today's interactive study?</p>
+		<textarea required type="text" id="postsurvey-studies" rows="5" cols="25"></textarea>
+		<div class="message">{{form_message}}</div>
+	<button type="submit">Submit</button>
+	</form>
+</div>
 </template>	
 
 <template name="exitScreen">
