@@ -1,0 +1,14 @@
+app:
+    image: vanessa/lsr-political-consensus
+    ports:
+        - "3000:3000"
+    links:
+        - database
+    volumes:
+        - ".:/code"
+    environment:
+    - MONGO_URL=mongodb://database:27017/meteor
+
+database:
+  image: mongo:3.0
+  command: mongod --smallfiles --quiet --logpath=/dev/null
