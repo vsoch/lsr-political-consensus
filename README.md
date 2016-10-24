@@ -20,7 +20,74 @@ The `-d` means detached, and that you won't see any output (or errors) to the co
       docker-compose stop
 
 
-When you do `docker-compose up -d` the application should be available at `http://127.0.0.1:3000/`. Even if the application is crashing, you will see the error output printed here, and meteor will try to reload or restart the application given any file changes.
+When you do `docker-compose up -d` the application should be available at `http://127.0.0.1:3000/`. Even if the application is crashing, you will see the error output printed here, and meteor will try to reload or restart the application given any file changes. My recommendation is to do:
+
+    docker-compse up
+
+and then verify that the application is running, when it worked for me I saw:
+
+
+	$ docker-compose up
+	Starting lsrpoliticalconsensus_database_1
+	Recreating lsrpoliticalconsensus_app_1
+	Attaching to lsrpoliticalconsensus_database_1, lsrpoliticalconsensus_app_1
+	app_1      | [[[[[ /code/app ]]]]]
+	app_1      | 
+	app_1      | => Started proxy.
+	app_1      | I20161024-00:13:35.767(0)? Kadira: completed instrumenting the app
+	app_1      | => Started your app.
+	app_1      | 
+	app_1      | => App running at: http://localhost:3000/
+	app_1      | I20161024-00:13:36.157(0)? Kadira: successfully authenticated
+
+
+You should then be able to go to `localhost:3000` or `127.0.0.1` in your browser to see the study console, with options for "Admin" and "Game." If this doesn't work, jump down to the Debugging section.
+
+
+## Setting Up Admin
+The following notes are old, and need to be updated as the application is. I (@vsoch) went through these steps to test. **NOTE: these is some kind of setup for Kadira via a file in [app/server/kadiera.js](app/server/kadiera.js). It is some kind of token that likely is for the production version, and someone should look into this. Ideally, we want one file for a new user to add these custom variables, and clear instructions on what is needed to do.
+
+
+### 1. Set up Liberal and Conservative Tokens
+Log into the admin panel and set the `Liberal experiment credit token` to "lib" and `Conservative experiment credit token` to "cons"
+
+
+### 2. Test the experiments
+Open four browsers (for instance, one Chrome, one Chrome incognito, one Firefox, one Firefox private)
+Go to [http://127.0.0.1:3000/start?source=mturk&experiment_id=lib&worker_id={SOMETHING THAT HASN’T BEEN USED BEFORE}](http://127.0.0.1:3000/start?source=mturk&experiment_id=lib&worker_id={SOMETHING THAT HASN’T BEEN USED BEFORE}) on each browser
+
+You should be able to then complete the study switching between the four browsers
+
+### 3. Database
+The mongodb can be accessed in the following ways. 
+
+1. First, the data can be downloaded from the web interface in the "Admin" panel, click on "Download Results."
+2. In the case that the admin panel isn't available, you can log into the database container directly. First (in a separate terminal if you ran docker-compose up without the -d) do `docker ps` to see all the running containers:
+
+	CONTAINER ID        IMAGE                             COMMAND                  CREATED             STATUS              PORTS                    NAMES
+	bd38638c824c        vanessa/lsr-political-consensus   "meteor --settings se"   16 minutes ago      Up 16 minutes       0.0.0.0:3000->3000/tcp   lsrpoliticalconsensus_app_1
+	a0c74e38f525        mongo:3.0                         "/entrypoint.sh mongo"   25 minutes ago      Up 16 minutes       27017/tcp                lsrpoliticalconsensus_database_1
+
+The above shows us that our mongo:3.0 database, called `lsrpoliticalconsensus_database_1` has container id `a0c74e38f525`. We can thus connect to it via:
+
+      docker exec -it a0c74e38f525 bash
+
+The format for export is generally the following:
+
+      
+      mongoexport -h {{ hostname }}:{{ port }} -d {{ database }} -c {{ collection }} -u {{ user }} -p {{ password }} -o workers.csv --type=csv -f 
+
+Note that the names of the database fields are:
+
+- globals
+- games 
+- responses workers
+
+Someone needs to test that 
+
+1. the database is being connected to successfully from the application, meaning the connection is working between the containers!
+2. Then generate test data, and likely a test to see that sona systems is working is needed (@vsoch doesn't know how this works)
+3. Finally, when the data is generated and confirmed to exist in the database, the different options for export need to be properly written out.
 
 
 ### Debugging
@@ -43,7 +110,19 @@ You can also shell into a container by getting it's id with `docker -ps` and the
 where `-it` corresponds to interactive terminal.
 
 #### Meteor Debugging
-The error messages for your application will be available at `http://127.0.0.1:3000/`, so you should start here. Here are a set of common errors that I (@vsoch) encountered when I first tried to get this working:
+The error messages for your application will be available at `http://127.0.0.1:3000/`, so you should start here.
+
+
+###### Meteor Version
+Of high importance: **DO NOT UPDATE METEOR**. The application was developed using a very specific version of Meteor (version 1.1.0.3) and updating to a newer version will break it. This is one of the reasons we are using containers - if you look in the Dockerfile, we install meteor by running the command:
+
+      /code/install-meteor.sh
+
+This is the same install script that would be downloaded and run via `curl https://install.meteor.com/ | sh`, except the `RELEASE` variable is hard coded to be the one that we need. For this reason, it is very important that you do not try to update Meteor, unless you are wanting some functionality that the new version offers, and are willing to debug the errors.
+
+
+###### Missing settings
+When I (@vsoch) first set this up, I ran the command `meteor` in my [Dockerfile](Dockerfile) instead of `meteor --settings settings.json`. This means that none of the additional information like the admin password, etc., was available to the application, and it crashed:
 
 
 	/root/.meteor/packages/meteor-tool/.1.1.4.yg6231++os.linux.x86_64+web.browser+web.cordova/mt-os.linux.x86_64/dev_bundle/server-lib/node_modules/fibers/future.js:245
@@ -63,57 +142,4 @@ The error messages for your application will be available at `http://127.0.0.1:3
 	Your application is crashing. Waiting for file change.
 
 
-This error is telling us (line 9) that there is some error in the init.js function. specifically the line being referenced is reading in the 'admin_password' from the settings.json file. If you see this error, there is something wrong with the admin password, or in my case, I had not set up the mongodb yet.
-
-
-## Usage
-The admin panel can be accessed via a password, not shared in this public documentation.
-
-
-
-Log into the admin panel and set the liberal token to “lib” and conservative token to “cons”
-Open four browsers (for instance, one Chrome, one Chrome incognito, one Firefox, one Firefox private)
-Go to “https://political-consensus.herokuapp.com/start?source=mturk&experiment_id=lib&worker_id={SOMETHING THAT HASN’T BEEN USED BEFORE}” on each browser
-
-You should be able to then complete the study switching between the four browsers
-Database
-For the Heroku deployment, all the data is stored on MongoLab, which is connected to the Heroku account
-Originally created by Justine Zhang (jz727@cornell.edu), most recently deployed by Kyle Qian (kylecqian@gmail.com) 
-
-Heroku dashboard login info:
-redekopp@stanford.edu
-Soclab12
-OR
-malinaj@stanford.edu
-spaceman
-Download additional responses
-
-Go to project directory (lsr-political-consensus)
-Command: mongoexport -h ds019068.mlab.com:19068 -d heroku_b85ffvv1 -c workers -u heroku_b85ffvv1 -p spaceman8 -o workers.csv --type=csv -f _id,additional_qs.0,additional_qs.1,additional_qs.2,additional_qs.3,additional_qs.4,additional_qs.5,additional_qs.6,additional_qs.7,additional_qs.8,additional_qs.9,additional_qs.10,additional_qs.11,additional_qs.12,additional_qs.13,feel_qs.0,feel_qs.1,feel_qs.2,feel_qs.3,feel_qs.4,feel_qs.5,feel_qs.6,feel_qs.7,feel_qs.8,feel_qs.9,feel_qs.10,feel_qs.11,feel_qs.12,feel_qs.13,feel_qs.14,feel_qs.15,feel_qs.16,feel_qs.17,post_game_responses.comments,post_game_responses.suspicions,post_game_responses.survey,post_game_responses.studies,post_game_responses.adequately_debriefed
-Current TODOs (Keep updated!)
-
-
-
-_______________________________________________________________________________________________
-
-
-
-ACS Append (Flask, Python w/ SQLite) - https://github.com/stanford-soclab/acs-lookup
-Allows users to append ACS county data to rows in a given CSV file, using the ‘zip codes’ column
-Currently deployed on Stanford AFS using cgi-bin
-The AFS directory is located at “/afs/.ir/group/lsr/cgi-bin/acs-lookup”
-The current URL to access the deploy is at “http://web.stanford.edu/group/lsr/cgi-bin/acs-lookup/app.cgi/index”
-Troubleshooting
-When you copy paste an updated directory to the AFS folder, you may need to run “chmod 755 /location/of/app.cgi” or else you’ll get permissions errors when you try to access the updated site
-If there is a file called “.suexecd” in the directory, the web app will run in “debug mode.” The file may be found as “suexecd”, in which case debug mode would be turned off.
-Contact Kyle Qian (kylecqian@gmail.com) for deployment issues
-Current TODOs (Keep updated!)
-Better handling of raising exceptions, try/except blocks, and asserts
-Make sure code can handle Unicode characters
-SANITIZE THE SQL for accessing the DB
-Write checks for if the zip code is valid
-Handle case where the input file is not .CSV or when there is no ‘zip’ column
-The app assumes the CSV is using commas as delimiters
-
-
-
+This error is telling us (line 9) that there is some error in the init.js function. specifically the line being referenced is reading in the 'admin_password' from the settings.json file. This is because the application did not know about this file.

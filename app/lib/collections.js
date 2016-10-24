@@ -88,16 +88,3 @@ Responses = new Mongo.Collection('responses');
 */
 
 Workers = new Mongo.Collection('workers');
-
-
-
-
-
-
-
-
-
-
-
-
-

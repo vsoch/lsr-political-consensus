@@ -7,6 +7,7 @@ Meteor.startup( function(){
 		});
 		
 	}
+
 	Meteor.settings.public.instruction_quiz_questions = [
 				{
 					"prompt": "How many people will be in your group, including you?",
@@ -16,6 +17,6 @@ Meteor.startup( function(){
 					"prompt": "How many members of your group will report their attitude for each political issue?",
 					"choices": ["One group member", "Half of the group members", "All of the group members"]
 				}
-			]; //fuck you meteor
+			];
 
 });
