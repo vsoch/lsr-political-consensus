@@ -84,12 +84,18 @@ Note that the names of the database fields are:
 - games 
 - responses workers
 
-Someone needs to test that 
+
+### Suggestions for Next Steps
+
+Someone needs to test that:
 
 1. the database is being connected to successfully from the application, meaning the connection is working between the containers!
 2. Then generate test data, and likely a test to see that sona systems is working is needed (@vsoch doesn't know how this works)
-3. Finally, when the data is generated and confirmed to exist in the database, the different options for export need to be properly written out.
+3. Finally, when the data is generated and confirmed to exist in the database, the different options for export need to be properly written out. Ideally, there is an easy script/tool that can do the export if/when the web application is not working.
 
+When the above is done, someone should read about a proper production environment for the application, likely looking into AWS or Google Cloud as options. Of high importance is that the authentication credentials, etc., are not shown publicly.
+
+Finally, when the application is production ready, we can have a conversation about how to "template-ize" it, meaning make it more generalized to customize questions, variables, etc.
 
 ### Debugging
 If you are debugging, there could be one of two issues. If there is an issue with the container, then you likely want to look at those logs (discussed below, first). More likely it's an issue with the application (discussed next)
