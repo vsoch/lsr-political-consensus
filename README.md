@@ -64,9 +64,10 @@ The mongodb can be accessed in the following ways.
 1. First, the data can be downloaded from the web interface in the "Admin" panel, click on "Download Results."
 2. In the case that the admin panel isn't available, you can log into the database container directly. First (in a separate terminal if you ran docker-compose up without the -d) do `docker ps` to see all the running containers:
 
-	CONTAINER ID        IMAGE                             COMMAND                  CREATED             STATUS              PORTS                    NAMES
-	bd38638c824c        vanessa/lsr-political-consensus   "meteor --settings se"   16 minutes ago      Up 16 minutes       0.0.0.0:3000->3000/tcp   lsrpoliticalconsensus_app_1
-	a0c74e38f525        mongo:3.0                         "/entrypoint.sh mongo"   25 minutes ago      Up 16 minutes       27017/tcp                lsrpoliticalconsensus_database_1
+	CONTAINER ID  IMAGE      COMMAND      CREATED      STATUS      PORTS      NAMES
+        bd38638c824c  vanessa/lsr-political-consensus  "meteor --settings se" 16 minutes ago  Up 16 minutes       0.0.0.0:3000->3000/tcp   lsrpoliticalconsensus_app_1
+        a0c74e38f525  mongo:3.0   "/entrypoint.sh mongo"   25 minutes ago  Up 16 minutes  27017/tcp                lsrpoliticalconsensus_database_1
+
 
 The above shows us that our mongo:3.0 database, called `lsrpoliticalconsensus_database_1` has container id `a0c74e38f525`. We can thus connect to it via:
 
